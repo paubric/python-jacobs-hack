@@ -7,12 +7,12 @@ def getHandle(query):
 
     # Get the first google hit for the query
     urllist = []
-    for url in search(query, stop=1):
+    for url in search(query, stop=20):
         urllist.append(url)
 
     # extracts the twitter handle of the first google hit
     twitterHandle = []
-    for i in range(1):
+    for i in range(20):
         if urllist[i].startswith("https://twitter.com/"):
             urllist[i] = urllist[i][20:]
             if urllist[i].endswith("?lang=en"):
