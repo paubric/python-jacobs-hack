@@ -37,7 +37,7 @@ def getTweets(handle):
     #print(api.VerifyCredentials())
 
     # Gets the past 20 statuses from twitter
-    statuses = api.GetUserTimeline(screen_name=handle)
+    statuses = api.GetUserTimeline(screen_name=handle, count=100)
     statusArray = [s.text for s in statuses]
     
     # only certain characters will be saved as part of the twitterPost

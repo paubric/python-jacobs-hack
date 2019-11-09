@@ -8,9 +8,9 @@ class App extends Component {
     this.state = {
       entities: [],
       query: "",
-      objectivity: '',
-      popularity: '',
-      optimism: ''
+      objectivity: 7,
+      popularity: 6,
+      optimism: 5
     }    
   }
 
@@ -44,20 +44,18 @@ class App extends Component {
           console.log(entities);
       });
 
-      var values = Object.keys(entities).map(function(key){
+      var values = Object.keys(data).map(function(key){
         return entities[key];
       });
 
+        /*
       values = values.filter(function(object) {
         return object.average_magnitude > 0.9;
-      });
+      }); */
 
       values = values.sort((a,b) => a.average_sentiment - b.average_sentiment );
 
-      this.setState({ entities: values,
-        objectivity: data['objectivity'],
-        popularity: data['popularity'],
-        optimism: data['optimism'],
+      this.setState({ entities: values
       })
       console.log(data)
     })
@@ -112,11 +110,8 @@ class App extends Component {
               <h5 class="card-title">{this.state.optimism}</h5>
             </div>
           </div>
-          <br/>
         </div>
-      <br/>
       </div>
-      <br/>
         <Entities colorizer={this.getColorForPercentage} entities={this.state.entities} />
       </div>
       </>
