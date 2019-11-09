@@ -1,6 +1,6 @@
 import twitter
-from urllib3 import request
-from BeautifulSoup import BeautifulSoup
+from urllib import request
+from bs4 import BeautifulSoup
 
 name = "jk rowling"
 name.replace(" ", "+")
@@ -11,7 +11,7 @@ page = request.urlopen(url)
 soup = BeautifulSoup(page.read())
 links = soup.findAll("a")
 for link in links:
-    print link["href"]
+    print(link["href"])
 
 
 
