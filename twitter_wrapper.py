@@ -1,23 +1,30 @@
 import twitter
-from urllib import request
-from bs4 import BeautifulSoup
-
-name = "jk rowling"
-name.replace(" ", "+")
-print(name)
-
-url = "https://www.google.com/search?q=twitter+" + name
-page = request.urlopen(url)
-soup = BeautifulSoup(page.read())
-links = soup.findAll("a")
-for link in links:
-    print(link["href"])
-
-
+from googlesearch import search
 
 # Take in "United Nations" and return "UN" (its Twitter handle)
 def getHandle(query):
-    pass
+    query += " Twitter"
+
+    # Get the first google hit for the query
+    urllist = []
+    for url in search(query, stop=1):
+        urllist.append(url)
+
+    # extracts the twitter handle of the first google hit
+    twitterHandle = []
+    for i in range(1):
+        if urllist[i].startswith("https://twitter.com/"):
+            urllist[i] = urllist[i][20:]
+            if urllist[i].endswith("?lang=en"):
+                urllist[i] = urllist[i][:-8]
+            if (urllist[i].find("/") == -1):
+                twitterHandle.append(urllist[i])
+
+    if (len(twitterHandle) != 0):
+        return twitterHandle[0]
+    else: 
+        print("No handle found")
+        return 0
 
 # Take in "UN" and return ['last tweet', 'previous tweet']
 def getTweets(handle):
@@ -32,8 +39,11 @@ def getTweets(handle):
     statuses = api.GetUserTimeline(screen_name=handle)
     statusArray = [s.text for s in statuses]
 
-    print(statusArray[0])
-    pass
+    return statusArray
 
 
 
+
+handle = getHandle(input("What do you what the twitter-handle for?\n"))
+print(handle)
+print(getTweets(handle))
