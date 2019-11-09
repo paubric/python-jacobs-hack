@@ -24,8 +24,7 @@ def getHandle(query):
     if (len(twitterHandle) != 0):
         return twitterHandle[0]
     else: 
-        print("No handle found")
-        return 0
+        return ''
 
 # Take in "UN" and return ['last tweet', 'previous tweet']
 def getTweets(handle):
@@ -48,6 +47,8 @@ def getTweets(handle):
         for j in range(len(twitterPostlist)):
             if twitterPostlist[j] in allowedCharacters:
                 twitterPost += twitterPostlist[j]
+            else:
+                twitterPost += " "
         statusArray[i] = twitterPost
         result = ' '.join(statusArray)
 
