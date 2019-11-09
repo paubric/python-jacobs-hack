@@ -20,6 +20,7 @@ def getHandle(query):
             if (urllist[i].find("/") == -1):
                 twitterHandle.append(urllist[i])
 
+    # returns the first twitter handle it finds
     if (len(twitterHandle) != 0):
         return twitterHandle[0]
     else: 
@@ -48,6 +49,7 @@ def getTweets(handle):
             if twitterPostlist[j] in allowedCharacters:
                 twitterPost += twitterPostlist[j]
         statusArray[i] = twitterPost
+        result = ' '.join(statusArray)
 
 
-    return statusArray
+    return result
