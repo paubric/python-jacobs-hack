@@ -50,6 +50,7 @@ def get_entity_sentiment(text):
 
         sorted_result = sorted(result.items(), key=lambda kv: kv[1]['average_magnitude'], reverse=True)
 
-    return sorted_result
+    return dict(sorted_result)
 
-pprint(get_entity_sentiment('Natural Language uses machine learning to reveal the structure and meaning of text. You can extract information about people, places, and events, and better understand social media sentiment and customer conversations. Natural Language enables you to analyze text and also integrate it with your document storage on Google Cloud Storage. '))
+if __name__ == '__main__':
+    pprint(get_entity_sentiment('Natural Language uses machine learning to reveal the structure and meaning of text. You can extract information about people, places, and events, and better understand social media sentiment and customer conversations. Natural Language enables you to analyze text and also integrate it with your document storage on Google Cloud Storage. '))
