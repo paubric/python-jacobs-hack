@@ -1,5 +1,6 @@
 import twitter
 from googlesearch import search
+import tweepy
 
 # Take in "United Nations" and return "UN" (its Twitter handle)
 def getHandle(query):
@@ -54,3 +55,11 @@ def getTweets(handle):
 
 
     return result
+
+def getFollowers(handle):    
+    auth = tweepy.OAuthHandler('AP84RmwW08IvolBCJQw3hz9VC', '6rJbXWzPAGkYHL7CQm6Q3NLerVNtW0qpkxEjOJHNAnez7wVaCk')
+    auth.set_access_token('959803788981932032-WLmUPiLHF7QxnDAWYqgjmaICcBJjLBE', 'i82j9LJrK4kUea6jPbBMJ8U5vRkLYJesJlhyH9eMzSMEM')
+    api = tweepy.API(auth)
+    
+    user = api.get_user(handle)
+    return user.followers_count
