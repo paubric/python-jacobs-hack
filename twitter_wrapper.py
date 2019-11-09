@@ -38,6 +38,17 @@ def getTweets(handle):
     # Gets the past 20 statuses from twitter
     statuses = api.GetUserTimeline(screen_name=handle)
     statusArray = [s.text for s in statuses]
+    
+    # only certain characters will be saved as part of the twitterPost
+    allowedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',' ', '@']
+    for i in range(len(statusArray)):
+        twitterPost = ""
+        twitterPostlist = list(statusArray[i])
+        for j in range(len(twitterPostlist)):
+            if twitterPostlist[j] in allowedCharacters:
+                twitterPost += twitterPostlist[j]
+        statusArray[i] = twitterPost
+
 
     return statusArray
 
