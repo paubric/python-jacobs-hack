@@ -71,7 +71,7 @@ class App extends Component {
       <div class="jumbotron">
       <h1 class="display-4">Standpoint</h1>
       <p class="lead">Democratizing political intelligence</p>
-      <p>Enter the text you want to analyze below.</p>
+      <p>Enter the name of the entity you want to analyze below.</p>
       <p class="lead">
       <input
             type="text"
