@@ -1,31 +1,32 @@
 from google_wrapper import get_entity_sentiment
 import twitter_wrapper
+from textblob import TextBlob
 
 def jacobs(request):
-    # Set CORS headers for the preflight request
-    if request.method == 'OPTIONS':
-        # Allows GET requests from any origin with the Content-Type
-        # header and caches preflight response for an 3600s
-        headers = {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Max-Age': '3600'
-        }
-
-        return ('', 204, headers)
-
-    # Set CORS headers for the main request
     headers = {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST',
+        'Access-Control-Request-Method': '*',
+        'Access-Control-Allow-Headers': '*'
     }
 
     query = request.args.get('query')
     handle = twitter_wrapper.getHandle(query)
     tweets = twitter_wrapper.getTweets(handle)
+
+    objectivity = (1 - TextBlob(tweets).subjectivity) * 10
+    optimism = (TextBlob(tweets).sentiment.polarity/2 + 0.5) * 10
+    
     analysis = get_entity_sentiment(tweets)
 
-    return (analysis, 200, headers)
+    response = {
+        'objectivity': objectivity,
+        'optimism': optimism,
+        'popularity': 7.48,
+        'entities': analysis
+    }
+
+    return (response, 200, headers)
     
 if __name__ == '__main__':
     app.run()
