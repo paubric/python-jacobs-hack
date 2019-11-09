@@ -51,10 +51,3 @@ def getTweets(handle):
 
 
     return statusArray
-
-
-
-
-handle = getHandle(input("What do you what the twitter-handle for?\n"))
-print(handle)
-print(getTweets(handle))

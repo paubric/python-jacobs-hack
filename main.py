@@ -1,4 +1,5 @@
 from google_wrapper import get_entity_sentiment
+import twitter_wrapper
 
 def jacobs(request):
     # Set CORS headers for the preflight request
@@ -20,8 +21,8 @@ def jacobs(request):
     }
 
     query = request.args.get('query')
-    handle = getHandle(query)
-    tweets = getTweets(handle)
+    handle = twitter_wrapper.getHandle(query)
+    tweets = twitter_wrapper.getTweets(handle)
     analysis = get_entity_sentiment(tweets)
 
     return (analysis, 200, headers)
