@@ -11,18 +11,11 @@ class App extends Component {
     }    
   }
 
-  state = {
-    entities: [],
-    query: ""
-  }
-
   handleChange = event => {
     const value = event.target.value;
     this.setState({
       query: value
     });
-
-    console.log(this.state)
   };
 
   updateEntities = event => {
