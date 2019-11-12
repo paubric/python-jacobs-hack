@@ -33,5 +33,7 @@ Videos: https://drive.google.com/drive/folders/1JBC141wMEcSRpa1ZX8r7fHkDlc6o_5Gc
 
 ## Contribution
 Paul: GCP, UiPath, ReactJS
+
 Jasper: Twitter
+
 Alina: UX Prototyping
