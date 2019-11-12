@@ -29,10 +29,10 @@ def getHandle(query):
 
 # Take in "UN" and return ['last tweet', 'previous tweet']
 def getTweets(handle):
-    api = twitter.Api(consumer_key='AP84RmwW08IvolBCJQw3hz9VC',
-                      consumer_secret='6rJbXWzPAGkYHL7CQm6Q3NLerVNtW0qpkxEjOJHNAnez7wVaCk',
-                      access_token_key='959803788981932032-WLmUPiLHF7QxnDAWYqgjmaICcBJjLBE',
-                      access_token_secret='i82j9LJrK4kUea6jPbBMJ8U5vRkLYJesJlhyH9eMzSMEM')
+    api = twitter.Api(consumer_key='XXXXXX',
+                      consumer_secret='XXXXXX',
+                      access_token_key='XXXXXX',
+                      access_token_secret='XXXXXX')
 
     #print(api.VerifyCredentials())
 
