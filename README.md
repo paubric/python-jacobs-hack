@@ -1,4 +1,8 @@
 # Jacob's Hack 2019 MLH Project
+
+_Best Use of Google Cloud, Best Use of UiPath_
+https://devpost.com/software/standpoint
+
 ## Inspiration
 
 NGOs, activists, and other entities advocating for social good are facing difficulties in forming strong, meaningful partnerships because of the inefficiency of the human-conducted political research process required for that. This issue is greatly limiting their potential for achieving their ambitious goals.
